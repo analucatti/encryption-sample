@@ -1,0 +1,11 @@
+### GET secret
+GET http://localhost:8080/secret
+Accept: application/json
+
+### Send POST data with json body
+POST http://localhost:8080/encrypt
+
+Content-Type: application/json
+{
+  "data": "Test encryption! It Works"
+}
