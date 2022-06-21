@@ -2,10 +2,18 @@
 GET http://localhost:8080/secret
 Accept: application/json
 
-### Send POST data with json body
-POST http://localhost:8080/encrypt
-
+### Send POST data with json body to encrypt
+POST http://localhost:8080/data/encrypt
 Content-Type: application/json
+
 {
   "data": "Test encryption! It Works"
+}
+
+### Send POST data with json body to decrypt
+POST http://localhost:8080/data/decrypt
+Content-Type: application/json
+
+{
+  "data": "eyJraWQiOiJJdjNQNFppUG1TR2RjZDFhMW55V0lHNFdoZWpmUW5CWkZIaitocjlHa0tFPSIsImVuYyI6IkEyNTZHQ00iLCJ0YWciOiJPT3ljaWlQeV9IcU1FZUYxeWNQZ09nIiwiYWxnIjoiQTI1NkdDTUtXIiwiaXYiOiJQNGVDckR2TWltbGM1Y0ZfIn0.pFNHpull929KVz14UdZgdPaYMwgh1-nwXRmmoOK5n9s.EcM4gA3l19RwpmGy.6TWHCrkFDb6OKpNsJvll7q-z1kEnULP53A.ilUnZE-XpBqIrAHyKk3i9w"
 }

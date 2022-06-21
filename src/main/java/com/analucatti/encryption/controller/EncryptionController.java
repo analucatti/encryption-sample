@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 
 @RestController
 @RequestMapping(path = "/data")
@@ -23,6 +24,11 @@ public class EncryptionController {
     @PostMapping(path = "/encrypt")
     public ResponseEntity<Data> encrypt(@RequestBody Data data) throws NoSuchAlgorithmException, JOSEException {
         return ResponseEntity.ok(encryptionService.encrypt(data));
+    }
+
+    @PostMapping(path = "/decrypt")
+    public ResponseEntity<Data> decrypt(@RequestBody Data data) throws NoSuchAlgorithmException, JOSEException, ParseException {
+        return ResponseEntity.ok(encryptionService.decrypt(data));
     }
 
     @GetMapping(path = "/secret")

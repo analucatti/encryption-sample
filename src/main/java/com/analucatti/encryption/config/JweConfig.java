@@ -4,6 +4,7 @@ import com.nimbusds.jose.EncryptionMethod;
 import com.nimbusds.jose.JWEAlgorithm;
 import com.nimbusds.jose.JWEHeader;
 import com.nimbusds.jose.KeyLengthException;
+import com.nimbusds.jose.crypto.AESDecrypter;
 import com.nimbusds.jose.crypto.AESEncrypter;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,8 +30,12 @@ public class JweConfig {
                 .build();
     }
 
-    public AESEncrypter aesEncrypter() throws NoSuchAlgorithmException, KeyLengthException {
+    public AESEncrypter encrypt() throws NoSuchAlgorithmException, KeyLengthException {
         return new AESEncrypter(sha256());
+    }
+
+    public AESDecrypter decrypt() throws NoSuchAlgorithmException, KeyLengthException {
+        return new AESDecrypter(sha256());
     }
 
     private byte[] sha256() throws NoSuchAlgorithmException {
